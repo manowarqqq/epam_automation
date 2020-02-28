@@ -32,14 +32,13 @@ public class Book {
         setId(++count);
     }
 
-    public Book(long id, String name, String author, PublishingHouse publishingHouse, int publishingYear, int numberOfPages, int price, BindingType bindingType) {
+    public Book(String name, String author, PublishingHouse publishingHouse, int publishingYear, int numberOfPages, int price) {
         this.name = name;
         this.author = author;
         this.publishingHouse = publishingHouse;
         this.publishingYear = publishingYear;
         this.numberOfPages = numberOfPages;
         this.price = price;
-        this.bindingType = bindingType;
         setId(++count);
     }
 
