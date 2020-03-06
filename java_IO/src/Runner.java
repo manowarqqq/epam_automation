@@ -8,13 +8,13 @@ public class Runner {
     public static String offset = "";
 
 
-    public static File resultFile= new File(System.getProperty("user.dir") + "\\java_IO\\src\\result2.txt");
+    public static File resultFile= new File(System.getProperty("user.dir") + "\\java_IO\\src\\result.txt");
     public static BufferedWriter bw;
 
 
     static {
         try {
-            bw = new BufferedWriter(new FileWriter(resultFile));
+            bw = new BufferedWriter(new FileWriter(resultFile,true));
 
         } catch (IOException e) {
             e.printStackTrace();
