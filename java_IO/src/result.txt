@@ -1,6 +1,154 @@
-1
-2
-3
-4
--1
- 4
+     Hello.class
+     Hello.java
+-----ADirectory
+          tes.txt
+          tes2.txt
+-----BDirectory
+          assignment.jpg
+          Notifications.jpg
+          pag2.jpg
+----------Level3
+               tes.txt
+---------------Level4
+--------------------Level5
+                         pag1.jpg
+-------------------------Level6
+                              _wifi.txt
+                              big.txt
+                              session_buddy_export_2019_11_05_17_25_36.txt
+                              Strings.txt
+                              tes.txt
+                              tes2.txt
+                              test.txt
+     Hello.class
+     Hello.java
+-----ADirectory
+          tes.txt
+          tes2.txt
+-----BDirectory
+          assignment.jpg
+          Notifications.jpg
+          pag2.jpg
+----------Level3
+               tes.txt
+---------------Level4
+--------------------Level5
+                         pag1.jpg
+-------------------------Level6
+                              _wifi.txt
+                              big.txt
+                              session_buddy_export_2019_11_05_17_25_36.txt
+                              Strings.txt
+                              tes.txt
+                              tes2.txt
+                              test.txt
+     Hello.class
+     Hello.java
+-----ADirectory
+          tes.txt
+          tes2.txt
+-----BDirectory
+          assignment.jpg
+          Notifications.jpg
+          pag2.jpg
+----------Level3
+               tes.txt
+---------------Level4
+--------------------Level5
+                         pag1.jpg
+-------------------------Level6
+                              _wifi.txt
+                              big.txt
+                              session_buddy_export_2019_11_05_17_25_36.txt
+                              Strings.txt
+                              tes.txt
+                              tes2.txt
+                              test.txt
+     Hello.class
+     Hello.java
+-----ADirectory
+          tes.txt
+          tes2.txt
+-----BDirectory
+          assignment.jpg
+          Notifications.jpg
+          pag2.jpg
+----------Level3
+               tes.txt
+---------------Level4
+--------------------Level5
+                         pag1.jpg
+-------------------------Level6
+                              _wifi.txt
+                              big.txt
+                              session_buddy_export_2019_11_05_17_25_36.txt
+                              Strings.txt
+                              tes.txt
+                              tes2.txt
+                              test.txt
+     Hello.class
+     Hello.java
+-----ADirectory
+          tes.txt
+          tes2.txt
+-----BDirectory
+          assignment.jpg
+          Notifications.jpg
+          pag2.jpg
+----------Level3
+               tes.txt
+---------------Level4
+--------------------Level5
+                         pag1.jpg
+-------------------------Level6
+                              _wifi.txt
+                              big.txt
+                              session_buddy_export_2019_11_05_17_25_36.txt
+                              Strings.txt
+                              tes.txt
+                              tes2.txt
+                              test.txt
+     Hello.class
+     Hello.java
+-----ADirectory
+          tes.txt
+          tes2.txt
+-----BDirectory
+          assignment.jpg
+          Notifications.jpg
+          pag2.jpg
+----------Level3
+               tes.txt
+---------------Level4
+--------------------Level5
+                         pag1.jpg
+-------------------------Level6
+                              _wifi.txt
+                              big.txt
+                              session_buddy_export_2019_11_05_17_25_36.txt
+                              Strings.txt
+                              tes.txt
+                              tes2.txt
+                              test.txt
+     Hello.class
+     Hello.java
+-----ADirectory
+          tes.txt
+          tes2.txt
+-----BDirectory
+          assignment.jpg
+          Notifications.jpg
+          pag2.jpg
+----------Level3
+               tes.txt
+---------------Level4
+--------------------Level5
+                         pag1.jpg
+-------------------------Level6
+                              _wifi.txt
+                              big.txt
+                              session_buddy_export_2019_11_05_17_25_36.txt
+                              Strings.txt
+                              tes.txt
+                              tes2.txt
+                              test.txt
