@@ -60,7 +60,7 @@ public class TreeUtil {
     private static void getReport(File file) throws IOException {
         directories = new ArrayList<>();
         files = new ArrayList<>();
-        String temp = null;
+        String temp;
         while ((temp = br.readLine()) != null) {
             if (temp.startsWith(" ")) {
                 files.add(temp.trim());
