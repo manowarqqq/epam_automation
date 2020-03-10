@@ -2,22 +2,20 @@ import java.io.*;
 
 import java.util.*;
 
-public class Connect {
+public class TreeUtil {
     private static String offset = "";
-
-    static File resultFile = new File(System.getProperty("user.dir") + "\\java_IO\\src\\result.txt");
-    static FileWriter fileWriter;
+    private static File resultFile = new File(System.getProperty("user.dir") + "\\java_IO\\src\\result.txt");
+    private static List<String> directories;
+    private static List<String> files;
     static BufferedWriter bw;
-    static FileReader fileReader;
     static BufferedReader br;
-
 
     static {
         try {
-            fileWriter = new FileWriter(resultFile, true);
+            FileWriter fileWriter = new FileWriter(resultFile, true);
             bw = new BufferedWriter(fileWriter);
-                      fileReader = new FileReader(resultFile);
-                      br = new BufferedReader(fileReader);
+            FileReader fileReader = new FileReader(resultFile);
+            br = new BufferedReader(fileReader);
         } catch (final IOException e) {
             throw new ExceptionInInitializerError(e.getMessage());
         }
@@ -32,7 +30,7 @@ public class Connect {
         }
         if (file.isFile()) {
             if (file.getName().equals("result.txt")) {
-                   Connect.getReport(file);
+                TreeUtil.getReport(file);
                 return;
             }
             bw.write(file.getName());
@@ -49,7 +47,7 @@ public class Connect {
             if (currentFile.isDirectory()) {
                 bw.write(offset.replace(" ", "-") + currentFile.getName());
                 bw.newLine();
-                Connect.tree(currentFile);
+                TreeUtil.tree(currentFile);
                 offset = offset.substring(0, offset.length() - 5);
                 continue;
             }
@@ -60,26 +58,40 @@ public class Connect {
 
 
     private static void getReport(File file) throws IOException {
-
-        List<String> directories = new ArrayList<>();
-        List<String> files = new ArrayList<>();
+        directories = new ArrayList<>();
+        files = new ArrayList<>();
         String temp = null;
-                   while ((temp = br.readLine()) != null) {
-                if (temp.startsWith(" ")) {
-                    files.add(temp.trim());
-                } else if (temp.startsWith("-")) {
-                    directories.add(temp.replace("-", " ".trim()));
-                }
+        while ((temp = br.readLine()) != null) {
+            if (temp.startsWith(" ")) {
+                files.add(temp.trim());
+            } else if (temp.startsWith("-")) {
+                directories.add(temp.replace("-", " ".trim()));
             }
-    }
-
-        public static  String countDirectories(List list) {
-
-
-                       return "";
         }
+    }
 
-
+    public static void countDirectories() {
+        System.out.println("Number of directories: " + directories.size());
 
     }
+
+    public static void countFiles() {
+        System.out.println("Number of files: " + files.size());
+    }
+
+
+    public static void averageFilesinDirectory() {
+        System.out.println("Average number of files in directory: " + TreeUtil.files.size() / TreeUtil.directories.size());
+    }
+
+    public static void averageLengthOfFile() {
+        int length = 0;
+        for (String s : TreeUtil.files) {
+            length += s.length();
+        }
+        float result = length / TreeUtil.files.size();
+        System.out.println("Average length of file: " + result);
+    }
+
+}
 
