@@ -1,5 +1,3 @@
-
-
 public class TaskTwo {
 
     //Task2
