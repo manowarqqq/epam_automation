@@ -13,9 +13,10 @@ public class TaskThree {
             System.out.println((int)(Math.random()*10000));
 
             // без перехода на новую строку
-                System.out.print((int)(Math.random()*10000)+ " ");
+            // System.out.print((int)(Math.random()*10000)+ " ");
         }
         scan.close();
+
     }
 
 }
