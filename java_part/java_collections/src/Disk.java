@@ -6,14 +6,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Disk {
 
-    private static int count = 0;
+    private static int counterId = 0;
     private int diskId;
     private List<Composition> compositionList;
 
 
     public Disk(List<Composition> compositionList) {
         this.compositionList = compositionList;
-        setDiskId(++count);
+        setDiskId(++counterId);
     }
 
     public void setDiskId(int diskId) {
