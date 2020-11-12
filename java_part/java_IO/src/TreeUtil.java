@@ -4,12 +4,11 @@ import java.util.*;
 
 public class TreeUtil {
     private static String offset = "";
-    private static File resultFile = new File(System.getProperty("user.dir") + "\\java_IO\\src\\result.txt");
+    private static File resultFile = new File(System.getProperty("user.dir") + "\\java_part\\java_IO\\src\\result.txt");
     private static List<String> directories;
     private static List<String> files;
     static BufferedWriter bw;
     static BufferedReader br;
-
     static {
         try {
             FileWriter fileWriter = new FileWriter(resultFile, true);
@@ -21,8 +20,7 @@ public class TreeUtil {
         }
     }
 
-
-    public static void tree(File file) throws IOException {
+    static void tree(File file) throws IOException {
         offset += "     ";
         if (!(file.exists())) {
             System.out.println("Wrong path");
@@ -70,21 +68,21 @@ public class TreeUtil {
         }
     }
 
-    public static void countDirectories() {
+    static void countDirectories() {
         System.out.println("Number of directories: " + directories.size());
 
     }
 
-    public static void countFiles() {
+    static void countFiles() {
         System.out.println("Number of files: " + files.size());
     }
 
 
-    public static void averageFilesinDirectory() {
+    static void averageFilesinDirectory() {
         System.out.println("Average number of files in directory: " + TreeUtil.files.size() / TreeUtil.directories.size());
     }
 
-    public static void averageLengthOfFile() {
+    static void averageLengthOfFile() {
         int length = 0;
         for (String s : TreeUtil.files) {
             length += s.length();

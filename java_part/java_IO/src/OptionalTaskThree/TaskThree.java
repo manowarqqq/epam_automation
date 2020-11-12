@@ -8,9 +8,9 @@ public class TaskThree {
     // Прочитать текст Java-программы и записать в другой файл в обратном порядке символы каждой строки.
 
     public static void main(String[] args) {
-        List<String> lines=new ArrayList();
-        File inputFile = new File(System.getProperty("user.dir") + "\\java_IO\\src\\OptionalTaskThree\\TestClassThree.java");
-        File outputFile = new File(System.getProperty("user.dir") + "\\java_IO\\src\\OptionalTaskThree\\outputThree");
+        List<String> lines=new ArrayList<>();
+        File inputFile = new File(System.getProperty("user.dir") + "\\java_part\\java_IO\\src\\OptionalTaskThree\\TestClassThree.java");
+        File outputFile = new File(System.getProperty("user.dir") + "\\java_part\\java_IO\\src\\OptionalTaskThree\\outputThree");
         try (BufferedReader br = new BufferedReader(new FileReader(inputFile));
              BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile))) {
             String line;

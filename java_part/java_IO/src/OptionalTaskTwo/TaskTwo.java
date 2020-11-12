@@ -10,8 +10,8 @@ public class TaskTwo {
 
     public static void main(String[] args) {
         List<String> lines=new ArrayList();
-        File inputFile = new File(System.getProperty("user.dir") + "\\java_IO\\src\\OptionalTaskTwo\\TestClass.java");
-        File outputFile = new File(System.getProperty("user.dir") + "\\java_IO\\src\\OptionalTaskTwo\\output");
+        File inputFile = new File(System.getProperty("user.dir") + "\\java_part\\java_IO\\src\\OptionalTaskTwo\\TestClass.java");
+        File outputFile = new File(System.getProperty("user.dir") + "\\java_part\\java_IO\\src\\OptionalTaskTwo\\output");
         try (BufferedReader br = new BufferedReader(new FileReader(inputFile));
              BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile))) {
     String line;
