@@ -1,4 +1,4 @@
-package test.java.test.data;
+package test.java.data;
 
 public class DataProviders {
    // @DataProvider

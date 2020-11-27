@@ -1,4 +1,4 @@
-package pastebinPages;
+package test.java.pastebinPages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

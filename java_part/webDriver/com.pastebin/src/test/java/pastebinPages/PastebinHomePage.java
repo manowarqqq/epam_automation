@@ -1,11 +1,10 @@
-package pastebinPages;
+package test.java.pastebinPages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-
-import static waiters.Waiter.*;
+import test.java.waiters.Waiter;
 
 
 public class PastebinHomePage extends AbstractPage {
@@ -36,20 +35,19 @@ public class PastebinHomePage extends AbstractPage {
 
     public PastebinHomePage openPage() {
         driver.get(HOMEPAGE_URL);
-        waitAjaxIsFinished(driver, WAIT_TIMEOUT_SECONDS);
+        Waiter.waitAjaxIsFinished(driver, WAIT_TIMEOUT_SECONDS);
         return this;
     }
 
-    public PastebinCreatedPastPage createPast(String code, int syntaxHighlightingIndex, int pastexpirationDropListIndex, String titile) throws InterruptedException {
+    public PastebinCreatedPastPage createPast(String code, int syntaxHighlightingIndex, int pastexpirationDropListIndex, String titile)  {
         Select selectSyntaxHiglighting = new Select(syntaxHighlighting);
         Select selectPastexpiration = new Select(pastExpirationDropList);
         pastField.sendKeys(code);
         selectSyntaxHiglighting.selectByIndex(syntaxHighlightingIndex);
         selectPastexpiration.selectByIndex(pastexpirationDropListIndex);
         pastNameTitle.sendKeys(titile);
-        waitVisibility(driver, createNewPaste);
+        Waiter.waitVisibility(driver, createNewPaste);
         createNewPaste.click();
-        Thread.sleep(2000);
         return new PastebinCreatedPastPage(driver);
     }
 }

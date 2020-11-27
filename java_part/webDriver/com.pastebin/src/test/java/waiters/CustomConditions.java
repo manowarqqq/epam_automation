@@ -1,7 +1,6 @@
-package waiters;
+package test.java.waiters;
 
 
-import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
