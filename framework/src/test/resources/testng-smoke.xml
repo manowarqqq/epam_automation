@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Smoke Suit" verbose="1">
+    <test name="smoke tests">
+
+        <classes>
+            <class name="test.CloudTest">
+                <methods>
+                    <include name="testOpenCalculatorPage"/>
+                    <include name="setUp"/>
+                    <include name="tierDown"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+</suite>
+
+
+
+
+
