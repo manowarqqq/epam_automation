@@ -1,6 +1,7 @@
 *.log
 out/
 .idea/
+*.iml
 
 *.class
 
