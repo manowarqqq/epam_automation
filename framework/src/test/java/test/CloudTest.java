@@ -1,10 +1,9 @@
 package test;
 
-import CloudPages.*;
+import cloudPages.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import service.ComputeEngineDataCreator;
 import utils.RegexCreator;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package CloudPages;
+package cloudPages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;

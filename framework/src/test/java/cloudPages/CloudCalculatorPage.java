@@ -1,7 +1,6 @@
-package CloudPages;
+package cloudPages;
 
 import model.ComputeEngine;
-import org.apache.commons.compress.archivers.dump.DumpArchiveConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +19,7 @@ public class CloudCalculatorPage extends AbstractPage {
     private ComputeEngine computeEngine = ComputeEngineDataCreator.engineFromProperties();
     private final String M_T = computeEngine.getMachineTypeInstance();
 
-    @FindBy(xpath = "//input[@id='input_60']")
+    @FindBy(xpath = "//input[@id='input_61']")
     private WebElement numberOfInstanceField;
 
     @FindBy(xpath = "//md-checkbox[@aria-label='Add GPUs']")
