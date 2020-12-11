@@ -1,13 +1,10 @@
 package pastebinPages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import waiters.Waiter;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,7 +35,6 @@ public class PastebinHomePage extends AbstractPage {
     private WebElement pastExpirationDropList;
 
 
-
     @FindBy(xpath = "//ul[@id='select2-postform-expiration-results']/li")
     private List<WebElement> pastExpirationValues;
 
@@ -61,24 +57,21 @@ public class PastebinHomePage extends AbstractPage {
         return this;
     }
 
-    public PastebinCreatedPastPage createPast(String code,String highlighting, String expiration, String titile) {
-        waitAjaxIsFinished(driver,5);
-        waitVisibility(driver,pastField).sendKeys(code);
+    public PastebinCreatedPastPage createPast(String code, String highlighting, String expiration, String titile) {
+        waitAjaxIsFinished(driver, 5);
+        waitVisibility(driver, pastField).sendKeys(code);
 
-        if(!highlighting.equals("None")) {
-            waitVisibility(driver,syntaxHighlightingDroplist).click();
+        if (!highlighting.equals("None")) {
+            waitVisibility(driver, syntaxHighlightingDroplist).click();
             WebElement highlightingValue = highlightingValues.stream().filter(x -> x.getText().equals(highlighting)).collect(Collectors.toList()).get(0);
-            waitVisibility(driver,highlightingValue).click();
+            waitVisibility(driver, highlightingValue).click();
         }
 
-        waitVisibility(driver,pastExpirationDropList).click();
-        WebElement pastExpirationValue =pastExpirationValues.stream().filter(x -> x.getText().equals(expiration)).collect(Collectors.toList()).get(0);
-        waitVisibility(driver,pastExpirationValue).click();
-        waitVisibility(driver,pastNameTitle).sendKeys(titile);
+        waitVisibility(driver, pastExpirationDropList).click();
+        WebElement pastExpirationValue = pastExpirationValues.stream().filter(x -> x.getText().equals(expiration)).collect(Collectors.toList()).get(0);
+        waitVisibility(driver, pastExpirationValue).click();
+        waitVisibility(driver, pastNameTitle).sendKeys(titile);
         waitVisibility(driver, createNewPaste).click();
-        while( !waitAjaxIsFinished(driver,10))
-        {}
-
         return new PastebinCreatedPastPage(driver);
 
     }

@@ -43,11 +43,10 @@ public class ExceptionsRunner {
         System.out.println(university.toString());
 
         try {
-            System.out.println(university.getFacultyByName(FacultyName.MSF).getGroupByName(GroupName.R_11).getStudentList().get(0).getMarks());
             System.out.println(MarkUtils.getAverageMark(Lesson.ENGLISH, university.getFacultyByName(FacultyName.MTF).getGroupByName(GroupName.D_21)));
             System.out.println(MarkUtils.getAverageMark(Lesson.ENGLISH, university.getFacultyByName(FacultyName.MTF)));
             Student testStudent = university.getFacultyByName(FacultyName.MTF).getGroupByName(GroupName.D_21).getStudentList()
-                            .stream().filter(st -> st.equals(StudentData.getStudentsData().get(0))).findFirst().orElseThrow();
+                    .stream().filter(st -> st.equals(StudentData.getStudentsData().get(0))).findFirst().orElseThrow();
             System.out.println(MarkUtils.getAverageMark(testStudent));
             System.out.println(MarkUtils.getAverageMark(Lesson.ENGLISH, university));
 
