@@ -1,10 +1,10 @@
-package Entity;
+package entity;
 
-import CustomExceptions.IllegalMarkArgumentEsception;
-import CustomExceptions.StudentDoesntHaveLesson;
-import Enumerations.GroupName;
-import Enumerations.Lesson;
-import Enumerations.Sex;
+import customExceptions.IllegalMarkArgumentEsception;
+import customExceptions.StudentDoesntHaveLesson;
+import enumerations.GroupName;
+import enumerations.Lesson;
+import enumerations.Sex;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,24 +27,23 @@ public class Student {
         this.sex = sex;
         this.age = age;
         this.groupName = groupName;
-        this.marks=new HashMap<>();
+        this.marks = new HashMap<>();
     }
 
     public void setMark(Lesson lesson, Integer mark) throws IllegalMarkArgumentEsception {
-        if (mark>0 && mark<=10) {
-        this.marks.put(lesson, mark);
-        } else throw new IllegalMarkArgumentEsception("Incorrect Mark");
-
+        if (mark > 0 && mark <= 10) {
+            this.marks.put(lesson, mark);
+        } else throw new IllegalMarkArgumentEsception("Incorrect Mark by student " + this.firstName + " in " + lesson);
     }
 
-    public GroupName getGroupName() {
+    GroupName getGroupName() {
         return groupName;
     }
 
     public Map<Lesson, Integer> getMarks() throws StudentDoesntHaveLesson {
-        if(marks.size()>0) {
+        if (marks.size() > 0) {
             return marks;
-        }else throw new StudentDoesntHaveLesson("Entity.Student has to have at least one lesson");
+        } else throw new StudentDoesntHaveLesson("Student " + this.firstName + " has to have at least one lesson");
 
     }
 

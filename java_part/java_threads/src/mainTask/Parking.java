@@ -1,13 +1,12 @@
+package mainTask;
+
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 
-public class Parking {
-
+class Parking {
 
     private BlockingQueue<Car> parkingQueue = new ArrayBlockingQueue<>(10);
-
-
 
     void enterToParking(Car car) {
         if (parkingQueue.remainingCapacity() > 0) {
@@ -16,9 +15,7 @@ public class Parking {
         } else {
             System.out.println(car.toString() + "Parking is full, going back; Total cars: " + parkingQueue.size());
         }
-
     }
-
 
     void leaveParking(Car car) {
         if (parkingQueue.contains(car)) {
@@ -26,7 +23,6 @@ public class Parking {
             System.out.println(car.toString() + "Leave the parking; Total cars:" + parkingQueue.size());
 
         }
-
     }
 }
 

@@ -1,4 +1,4 @@
-package CustomExceptions;
+package customExceptions;
 
 public class IllegalMarkArgumentEsception extends Exception {
 

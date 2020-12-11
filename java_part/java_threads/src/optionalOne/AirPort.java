@@ -1,9 +1,11 @@
+package optionalOne;
+
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class AirPort {
     private static AirPort airPort = new AirPort();
-    private Semaphore semaphore = new Semaphore(3);
+    private Semaphore semaphore = new Semaphore(5);
 
     private AirPort() {
     }
@@ -26,5 +28,4 @@ public class AirPort {
             semaphore.release();
         }
     }
-
 }

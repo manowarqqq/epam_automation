@@ -1,9 +1,9 @@
-package Entity;
+package entity;
 
-import CustomExceptions.EmptyFacultyException;
-import Entity.Group;
-import Enumerations.FacultyName;
-import Enumerations.GroupName;
+import customExceptions.EmptyFacultyException;
+import entity.Group;
+import enumerations.FacultyName;
+import enumerations.GroupName;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,8 +24,8 @@ public class Faculty {
         if (groups == null) {
             groups = new ArrayList<>();
             List<GroupName> groupNames = Arrays.stream(GroupName.values()).filter(g -> g.getFacultyName().equals(this.facultyName)).collect(Collectors.toList());
-            for (int i = 0; i < groupNames.size(); i++) {
-                Group group = new Group(groupNames.get(i), this.facultyName);
+            for (GroupName groupName : groupNames) {
+                Group group = new Group(groupName, this.facultyName);
                 groups.add(group);
             }
         }
@@ -34,7 +34,7 @@ public class Faculty {
 
     public List<Group> getGroups() throws EmptyFacultyException {
         if (groups == null || groups.size() == 0) {
-            throw new EmptyFacultyException("Entity.Faculty can't be empty");
+            throw new EmptyFacultyException("Faculty " + this.facultyName + " can't be empty");
         }
         return groups;
     }

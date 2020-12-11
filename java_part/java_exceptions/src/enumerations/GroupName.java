@@ -1,7 +1,7 @@
-package Enumerations;
+package enumerations;
 
 public enum GroupName {
-   D_21(FacultyName.MTF),D_31(FacultyName.MTF),R_11(FacultyName.MSF),R_21(FacultyName.MSF),E_41(FacultyName.EF);
+    D_21(FacultyName.MTF), D_31(FacultyName.MTF), R_11(FacultyName.MSF), R_21(FacultyName.MSF), E_41(FacultyName.EF);
 
     private FacultyName facultyName;
 

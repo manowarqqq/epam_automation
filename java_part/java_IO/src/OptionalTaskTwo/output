@@ -1,4 +1,4 @@
-package OptionalTaskTwo;
+package optionalTaskTwo;
 
 private class TestClass {
     private String name;

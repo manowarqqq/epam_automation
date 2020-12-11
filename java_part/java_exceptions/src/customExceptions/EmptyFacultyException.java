@@ -1,4 +1,4 @@
-package CustomExceptions;
+package customExceptions;
 
 public class EmptyFacultyException extends Exception {
 

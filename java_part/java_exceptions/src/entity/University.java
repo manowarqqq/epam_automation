@@ -1,7 +1,7 @@
-package Entity;
+package entity;
 
-import CustomExceptions.EmptyUniversityException;
-import Enumerations.FacultyName;
+import customExceptions.EmptyUniversityException;
+import enumerations.FacultyName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,6 @@ public class University {
                 faculties.add(facultie);
             }
         }
-
     }
 
 
@@ -55,6 +54,4 @@ public class University {
                 ", faculties=" + faculties +
                 '}';
     }
-
-
 }

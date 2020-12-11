@@ -1,11 +1,9 @@
-package Entity;
+package entity;
 
-import CustomExceptions.EmptyGroupException;
-import Data.StudentData;
-import Entity.Student;
-import Enumerations.FacultyName;
-import Enumerations.GroupName;
-
+import customExceptions.EmptyGroupException;
+import data.StudentData;
+import enumerations.FacultyName;
+import enumerations.GroupName;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,22 +18,21 @@ public class Group {
         this.facultyName = facultyName;
     }
 
-    public Group(GroupName groupName, FacultyName facultyName) {
+    Group(GroupName groupName, FacultyName facultyName) {
         this.groupName = groupName;
         this.facultyName = facultyName;
         setStudents();
     }
 
-    public void setStudents() {
+    private void setStudents() {
         if (studentList == null) {
             studentList = new ArrayList<>();
-for(int i = 0; i< StudentData.getStudentsData().size(); i++) {
-    if(StudentData.getStudentsData().get(i).getGroupName().equals(this.groupName)) {
-        this.studentList.add(StudentData.getStudentsData().get(i));
-    }
-}
+            for (int i = 0; i < StudentData.getStudentsData().size(); i++) {
+                if (StudentData.getStudentsData().get(i).getGroupName().equals(this.groupName)) {
+                    this.studentList.add(StudentData.getStudentsData().get(i));
+                }
+            }
         }
-
     }
 
 
@@ -45,20 +42,20 @@ for(int i = 0; i< StudentData.getStudentsData().size(); i++) {
     }
 
     public List<Student> removeStudentFromGroup(Student student) throws EmptyGroupException {
-        if(studentList==null || studentList.size()==0) {
-            throw  new EmptyGroupException("Entity.Group can't be empty");
+        if (studentList == null || studentList.size() == 0) {
+            throw new EmptyGroupException("Group " + this.groupName + " is empty");
         }
         studentList.removeIf(s -> s.equals(student));
         return studentList;
     }
 
-    public GroupName getGroupName() {
+    GroupName getGroupName() {
         return groupName;
     }
 
     public List<Student> getStudentList() throws EmptyGroupException {
-        if(studentList==null || studentList.size()==0) {
-            throw  new EmptyGroupException("Entity.Group can't be empty");
+        if (studentList == null || studentList.size() == 0) {
+            throw new EmptyGroupException("Group " + this.groupName + " can't be empty");
         }
         return studentList;
     }

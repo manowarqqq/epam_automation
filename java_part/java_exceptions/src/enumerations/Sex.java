@@ -1,5 +1,5 @@
-package Enumerations;
+package enumerations;
 
 public enum Sex {
-    MALE,FEMALE
+    MALE, FEMALE
 }

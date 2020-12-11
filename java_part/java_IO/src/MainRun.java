@@ -12,21 +12,15 @@ public class MainRun {
         String inputPath = scanner.nextLine();
         File inputFile = new File(inputPath);
         try {
-            TreeUtil.tree(inputFile);
-            if (inputPath.contains("result.txt")) {
-                TreeUtil.countDirectories();
-                TreeUtil.countFiles();
-                TreeUtil.averageFilesinDirectory();
-                TreeUtil.averageLengthOfFile();
-            }
+            Tree.buildTree(inputFile);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                if (TreeUtil.bw != null)
-                    TreeUtil.bw.close();
-                if (TreeUtil.br != null)
-                    TreeUtil.br.close();
+                if (Tree.bw != null)
+                    Tree.bw.close();
+                if (Tree.br != null)
+                    Tree.br.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -1,5 +1,5 @@
-package Enumerations;
+package enumerations;
 
 public enum FacultyName {
-    MTF,MSF,EF;
+    MTF, MSF, EF;
 }

@@ -1,4 +1,4 @@
-package OptionalTaskOne;
+package optionalTaskOne;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,7 +21,6 @@ public class TaskOne {
                 bw.write(" ");
             }
             bw.flush();
-
             String line;
 
             while ((line = br.readLine()) != null) {
@@ -33,7 +32,6 @@ public class TaskOne {
             }
             Collections.sort(numbersList);
 
-
             for (int i = 0; i < numbersList.size() - 1; i++) {
                 bow.write(String.valueOf(numbersList.get(i)));
                 bow.write(" ");
@@ -42,5 +40,4 @@ public class TaskOne {
             e.printStackTrace();
         }
     }
-
 }

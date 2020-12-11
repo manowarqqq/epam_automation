@@ -1,4 +1,4 @@
-package OptionalTaskThree;
+package optionalTaskThree;
 
 public class TestClassThree {
     public String name;

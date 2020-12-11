@@ -2,14 +2,19 @@ import java.io.*;
 
 import java.util.*;
 
-public class TreeUtil {
-    private static String offset = "";
+public class Tree {
+
+    private static String offset = "—————";
+    private static String innerOffset = "";
     private static File resultFile = new File(System.getProperty("user.dir") + "\\java_part\\java_IO\\src\\result.txt");
-    private static List<String> directories;
-    private static List<String> files;
+    static List<String> listDirectories;
+    static List<String> listFiles;
     static BufferedWriter bw;
     static BufferedReader br;
+
     static {
+        listDirectories = new ArrayList<>();
+        listFiles = new ArrayList<>();
         try {
             FileWriter fileWriter = new FileWriter(resultFile, true);
             bw = new BufferedWriter(fileWriter);
@@ -20,15 +25,19 @@ public class TreeUtil {
         }
     }
 
-    static void tree(File file) throws IOException {
-        offset += "     ";
+    static void buildTree(File file) throws IOException {
+        offset = offset + "—————";
         if (!(file.exists())) {
             System.out.println("Wrong path");
             return;
         }
         if (file.isFile()) {
             if (file.getName().equals("result.txt")) {
-                TreeUtil.getReport(file);
+                makeReport();
+                TreeUtils.countFiles();
+                TreeUtils.countDirectories();
+                TreeUtils.averageFilesinDirectory();
+                TreeUtils.averageLengthOfFile();
                 return;
             }
             bw.write(file.getName());
@@ -36,6 +45,7 @@ public class TreeUtil {
             return;
         }
         File[] files = file.listFiles();
+        assert files != null;
         Arrays.sort(files, (o1, o2) -> {
             if (o1.isDirectory()) return o2.isDirectory() ? o1.compareTo(o2) : 1;
             else if (o2.isDirectory()) return -1;
@@ -43,53 +53,28 @@ public class TreeUtil {
         });
         for (File currentFile : files) {
             if (currentFile.isDirectory()) {
-                bw.write(offset.replace(" ", "-") + currentFile.getName());
+                bw.write(innerOffset + "|" + offset + "\\" + currentFile.getName());
                 bw.newLine();
-                TreeUtil.tree(currentFile);
+                innerOffset = innerOffset + "     ";
+                Tree.buildTree(currentFile);
                 offset = offset.substring(0, offset.length() - 5);
+                innerOffset = innerOffset.substring(0, innerOffset.length() - 5);
                 continue;
             }
-            bw.write(offset + currentFile.getName());
+            bw.write(innerOffset + "|" + offset + currentFile.getName());
             bw.newLine();
         }
     }
 
-
-    private static void getReport(File file) throws IOException {
-        directories = new ArrayList<>();
-        files = new ArrayList<>();
+    private static void makeReport() throws IOException {
         String temp;
         while ((temp = br.readLine()) != null) {
-            if (temp.startsWith(" ")) {
-                files.add(temp.trim());
-            } else if (temp.startsWith("-")) {
-                directories.add(temp.replace("-", " ".trim()));
-            }
+            if (temp.contains("\\")) {
+                listDirectories.add(temp.replaceAll("[|—\\\\]", "").trim());
+            } else
+                listFiles.add(temp.replace("-", "".trim()));
         }
     }
-
-    static void countDirectories() {
-        System.out.println("Number of directories: " + directories.size());
-
-    }
-
-    static void countFiles() {
-        System.out.println("Number of files: " + files.size());
-    }
-
-
-    static void averageFilesinDirectory() {
-        System.out.println("Average number of files in directory: " + TreeUtil.files.size() / TreeUtil.directories.size());
-    }
-
-    static void averageLengthOfFile() {
-        int length = 0;
-        for (String s : TreeUtil.files) {
-            length += s.length();
-        }
-        float result = length / TreeUtil.files.size();
-        System.out.println("Average length of file: " + result);
-    }
-
 }
+
 

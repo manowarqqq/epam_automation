@@ -1,6 +1,6 @@
-package CustomExceptions;
+package customExceptions;
 
-public class EmptyGroupException extends  Exception {
+public class EmptyGroupException extends Exception {
 
     public EmptyGroupException(String message) {
         super(message);

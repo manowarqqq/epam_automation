@@ -1,3 +1,4 @@
+package mainTask;
 
 
 public class Car {
@@ -10,7 +11,6 @@ public class Car {
         this.color = Color.randomColor();
 
     }
-
 
 
     @Override
