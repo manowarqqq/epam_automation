@@ -1,4 +1,4 @@
-package optionalOne;
+package main.java.java_threads.optionalOne;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;

@@ -1,18 +1,18 @@
-package mainTask;
-
+package java_threads.mainTask;
 
 import java.util.List;
 import java.util.Random;
 
-public enum Model {
-    BMW, AUDI, RENO, MERSEDES, FORD, KIO, OPEL;
+public enum Color {
 
-    private static final List<Model> VALUES =
+    YELLOW, WHITE, BLACK, RED, GREEN, BROWN;
+
+    private static final List<Color> VALUES =
             List.of(values());
     private static final int SIZE = VALUES.size();
     private static final Random RANDOM = new Random();
 
-    public static Model randomModel() {
+    public static Color randomColor() {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
 }

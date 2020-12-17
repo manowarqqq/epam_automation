@@ -1,4 +1,4 @@
-package mainTask;
+package java_threads.mainTask;
 
 import java.util.Random;
 import java.util.concurrent.*;
@@ -21,11 +21,11 @@ public class Run {
             executor.submit(() -> {
                 try {
                     Car car = new Car();
-                    Thread.sleep(rand.nextInt(1000));
-                    parking.enterToParking(car);
-                    Thread.sleep(rand.nextInt(30000));
-                    parking.leaveParking(car);
-
+                    Thread.sleep(rand.nextInt(10000));
+                    if (Parking.parkingQueue.remainingCapacity() > 0) {
+                        parking.enterAndLeaveParking(car);
+                    } else
+                        System.out.println(car.toString() + "Parking is full, going back; Total cars: " + Parking.parkingQueue.size());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

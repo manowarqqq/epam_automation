@@ -1,4 +1,4 @@
-package mainTask;
+package java_threads.mainTask;
 
 
 public class Car {
