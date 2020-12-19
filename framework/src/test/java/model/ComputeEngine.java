@@ -22,7 +22,11 @@ public class ComputeEngine {
     private String addToEstimateButton;
     private String estimatedCost;
 
-    public ComputeEngine(String numberOfInstanceField, String cPUCheckBox, String machineTypeDropList, String machineTypeInstance, String numberOfGPUDropList, String numberOfGPUInput, String gpuTypeDropList, String gpuTypeInstance, String localSSDDropList, String localSSDInstance, String datacenterLocationDropList, String datacenterLocationInctance, String commitedUsageDropList, String commitedUsageInstance, String addToEstimateButton,String estimatedCost) {
+    public ComputeEngine(String numberOfInstanceField, String cPUCheckBox, String machineTypeDropList, String machineTypeInstance,
+                         String numberOfGPUDropList, String numberOfGPUInput, String gpuTypeDropList, String gpuTypeInstance,
+                         String localSSDDropList, String localSSDInstance, String datacenterLocationDropList,
+                         String datacenterLocationInctance, String commitedUsageDropList,
+                         String commitedUsageInstance, String addToEstimateButton, String estimatedCost) {
         this.numberOfInstanceField = numberOfInstanceField;
         this.cPUCheckBox = cPUCheckBox;
         this.machineTypeDropList = machineTypeDropList;
@@ -38,10 +42,11 @@ public class ComputeEngine {
         this.commitedUsageDropList = commitedUsageDropList;
         this.commitedUsageInstance = commitedUsageInstance;
         this.addToEstimateButton = addToEstimateButton;
-        this.estimatedCost= estimatedCost;
+        this.estimatedCost = estimatedCost;
     }
 
-    public ComputeEngine(String numberOfInstanceField, String machineTypeInstance, String numberOfGPUInput, String gpuTypeInstance, String localSSDInstance, String datacenterLocationInctance, String commitedUsageInstance, String estimatedCost) {
+    public ComputeEngine(String numberOfInstanceField, String machineTypeInstance, String numberOfGPUInput, String gpuTypeInstance,
+                         String localSSDInstance, String datacenterLocationInctance, String commitedUsageInstance, String estimatedCost) {
         this.numberOfInstanceField = numberOfInstanceField;
         this.machineTypeInstance = machineTypeInstance;
         this.numberOfGPUInput = numberOfGPUInput;
@@ -49,7 +54,7 @@ public class ComputeEngine {
         this.localSSDInstance = localSSDInstance;
         this.datacenterLocationInctance = datacenterLocationInctance;
         this.commitedUsageInstance = commitedUsageInstance;
-        this.estimatedCost= estimatedCost;
+        this.estimatedCost = estimatedCost;
     }
 
     public String getNumberOfInstanceField() {
@@ -112,7 +117,9 @@ public class ComputeEngine {
         return addToEstimateButton;
     }
 
-    public String getEstimatedCost() { return estimatedCost;}
+    public String getEstimatedCost() {
+        return estimatedCost;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -139,6 +146,6 @@ public class ComputeEngine {
 
     @Override
     public int hashCode() {
-        return Objects.hash(numberOfInstanceField,cPUCheckBox, machineTypeDropList, machineTypeInstance, numberOfGPUDropList, numberOfGPUInput, gpuTypeDropList, gpuTypeInstance, localSSDDropList, localSSDInstance, datacenterLocationDropList, datacenterLocationInctance, commitedUsageDropList, commitedUsageInstance, addToEstimateButton, estimatedCost);
+        return Objects.hash(numberOfInstanceField, cPUCheckBox, machineTypeDropList, machineTypeInstance, numberOfGPUDropList, numberOfGPUInput, gpuTypeDropList, gpuTypeInstance, localSSDDropList, localSSDInstance, datacenterLocationDropList, datacenterLocationInctance, commitedUsageDropList, commitedUsageInstance, addToEstimateButton, estimatedCost);
     }
 }

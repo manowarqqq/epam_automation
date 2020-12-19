@@ -1,10 +1,14 @@
 package cloudPages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static waiters.Waiter.clickElementWithJS;
 import static waiters.Waiter.waitVisibility;
 
 public class CloudCalculatorResultPage extends AbstractPage {
@@ -45,46 +49,46 @@ public class CloudCalculatorResultPage extends AbstractPage {
     }
 
     protected AbstractPage openPage() {
-        return  this;
+        return this;
     }
 
-    public String getVMclass(){
+    public String getVMclass() {
         return vmClass.getText();
     }
 
-    public String getInstanceType(){
+    public String getInstanceType() {
         return instanceType.getText();
     }
 
-    public String getRegion(){
+    public String getRegion() {
         return region.getText();
     }
 
-    public String getLocalSSD(){
+    public String getLocalSSD() {
         return localSSD.getText();
     }
 
-    public String getCommitmentTerm(){
+    public String getCommitmentTerm() {
         return commitmentTerm.getText();
     }
 
-    public String getEstimatedCost(){
+    public String getEstimatedCost() {
         return estimatedCost.getText();
     }
 
 
     public CloudCalculatorResultPage getEmailEstimateForm() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();",waitVisibility(driver,emailEstimateButton));
-        waitVisibility(driver,emailField);
+        clickElementWithJS(driver, emailEstimateButton);
+        waitVisibility(driver, emailField);
         return new CloudCalculatorResultPage(driver);
     }
 
     public CloudCalculatorResultPage sendEmailWithEstimate() {
         new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframePath));
         new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(myFramePath));
-        waitVisibility(driver, emailField).sendKeys(Keys.chord(Keys.CONTROL,"v"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();",waitVisibility(driver,sendEmailButton));
-         return new CloudCalculatorResultPage(driver);
+        waitVisibility(driver, emailField).sendKeys(Keys.chord(Keys.CONTROL, "v"));
+        clickElementWithJS(driver, sendEmailButton);
+        return new CloudCalculatorResultPage(driver);
     }
 
 }

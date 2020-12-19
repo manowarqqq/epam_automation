@@ -1,16 +1,28 @@
 package cloudPages;
 
-import model.ComputeEngine;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import model.ComputeEngine;
 import service.ComputeEngineDataCreator;
 
+import static waiters.Waiter.clickElementWithJS;
 import static waiters.Waiter.waitVisibility;
+
+
+//import org.apache.commons.compress.archivers.dump.DumpArchiveConstants;
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.support.FindBy;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class CloudCalculatorPage extends AbstractPage {
 
@@ -19,7 +31,7 @@ public class CloudCalculatorPage extends AbstractPage {
     private ComputeEngine computeEngine = ComputeEngineDataCreator.engineFromProperties();
     private final String M_T = computeEngine.getMachineTypeInstance();
 
-    @FindBy(xpath = "//input[@id='input_61']")
+    @FindBy(xpath = "//input[@id='input_60']")
     private WebElement numberOfInstanceField;
 
     @FindBy(xpath = "//md-checkbox[@aria-label='Add GPUs']")
@@ -31,11 +43,10 @@ public class CloudCalculatorPage extends AbstractPage {
     @FindBy(xpath = "//*[@id='select_option_236']/div")
     private WebElement machineTypeInstance;
 
-
     @FindBy(xpath = "//md-select[@placeholder='Number of GPUs']")
     private WebElement numberOfGPUDropList;
 
-    @FindBy(xpath = "//md-option[@value=1]/div[text()=1]")     //*[@id='select_option_430']/div
+    @FindBy(xpath = "//md-option[@value=1]/div[text()=1]")
     private WebElement numberOfGPUInput;
 
     @FindBy(xpath = "//md-select[@placeholder='GPU type']")
@@ -54,14 +65,10 @@ public class CloudCalculatorPage extends AbstractPage {
     private WebElement datacenterLocationDropList;
 
     @FindBy(xpath = "//md-option[@value='europe-west3']/div[text()='Frankfurt (europe-west3)']")
-    //*[@id='select_option_181']/div
     private WebElement datacenterLocationInctance;
 
     @FindBy(xpath = "//md-select[@placeholder='Committed usage']")
     private WebElement commitedUsageDropList;
-
-//   @FindBy(xpath = "//*[@id='select_option_90']/div[1]")
-//    private WebElement commitedUsageInstance;
 
     @FindBy(xpath = "//button[contains(text(),'Add to Estimate')]")
     private WebElement addToEstimateButton;
@@ -82,7 +89,8 @@ public class CloudCalculatorPage extends AbstractPage {
     }
 
     private WebElement getNumberOfGPUInput() {
-        return numberOfGPUDropList.findElement(By.xpath("//md-option[@value=" + computeEngine.getNumberOfGPUInput() + "]/div[text()=" + computeEngine.getNumberOfGPUInput() + "]"));
+        return numberOfGPUDropList.findElement(By.xpath("//md-option[@value=" + computeEngine.getNumberOfGPUInput() + "]/div[text()=" +
+                computeEngine.getNumberOfGPUInput() + "]"));
     }
 
     private WebElement getGpuTypeInstance() {
@@ -94,8 +102,8 @@ public class CloudCalculatorPage extends AbstractPage {
     }
 
     private WebElement getDatacenterLocationInctance() {
-        //return datacenterLocationDropList.findElement(By.xpath("//div[text()='"+computeEngine.getDatacenterLocationInctance()+"']/ancestor::md-option"));
-        return datacenterLocationDropList.findElement(By.xpath("//md-select-menu[@class='md-overflow']/md-content//div[contains(text(),'" + computeEngine.getDatacenterLocationInctance() + "')]"));
+        return datacenterLocationDropList.findElement(By.xpath("//md-select-menu[@class='md-overflow']/md-content//div[contains(text(),'" +
+                computeEngine.getDatacenterLocationInctance() + "')]"));
 
 
     }
@@ -106,26 +114,23 @@ public class CloudCalculatorPage extends AbstractPage {
 
 
     public CloudCalculatorResultPage fillInstanceForm() {
-
         new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframePath));
         new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(myFramePath));
-        waitVisibility(driver, numberOfInstanceField).sendKeys(computeEngine.getNumberOfInstanceField());
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, addCPUCheckBox));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, machineTypeDropList));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, getMachineTypeInstance()));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, numberOfGPUDropList));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, getNumberOfGPUInput()));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, gpuTypeDropList));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, getGpuTypeInstance()));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, localSSDDropList));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, getLocalSSDInstance()));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, datacenterLocationDropList));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, getDatacenterLocationInctance()));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, commitedUsageDropList));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, getCommitedUsageInstance()));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", waitVisibility(driver, addToEstimateButton));
-        logger.info("Form is filled");
+        waitVisibility(driver, numberOfInstanceField).sendKeys("4");
+        clickElementWithJS(driver, waitVisibility(driver, addCPUCheckBox));
+        clickElementWithJS(driver, waitVisibility(driver, machineTypeDropList));
+        clickElementWithJS(driver, waitVisibility(driver, machineTypeInstance));
+        clickElementWithJS(driver, waitVisibility(driver, numberOfGPUDropList));
+        clickElementWithJS(driver, waitVisibility(driver, numberOfGPUInput));
+        clickElementWithJS(driver, waitVisibility(driver, gpuTypeDropList));
+        clickElementWithJS(driver, waitVisibility(driver, gpuTypeInstance));
+        clickElementWithJS(driver, waitVisibility(driver, localSSDDropList));
+        clickElementWithJS(driver, waitVisibility(driver, localSSDInstance));
+        clickElementWithJS(driver, waitVisibility(driver, datacenterLocationDropList));
+        clickElementWithJS(driver, waitVisibility(driver, datacenterLocationInctance));
+        clickElementWithJS(driver, waitVisibility(driver, commitedUsageDropList));
+        clickElementWithJS(driver, waitVisibility(driver, commitedUsageInstance));
+        clickElementWithJS(driver, waitVisibility(driver, addToEstimateButton));
         return new CloudCalculatorResultPage(driver);
     }
-
 }

@@ -14,22 +14,21 @@ public class DriverSingelton {
     public static WebDriver getDriver() {
 
         if (driver == null) {
-            if (System.getProperty("browser")==null){
+            if (System.getProperty("browser") == null) {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
-               // System.setProperty("environment","qa");
-            }else
+            } else
 
-            switch (System.getProperty("browser")) {
-                case "firefox": {
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                switch (System.getProperty("browser")) {
+                    case "firefox": {
+                        WebDriverManager.firefoxdriver().setup();
+                        driver = new FirefoxDriver();
+                    }
+                    default: {
+                        WebDriverManager.chromedriver().setup();
+                        driver = new ChromeDriver();
+                    }
                 }
-                default: {
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                }
-            }
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         }
@@ -43,5 +42,4 @@ public class DriverSingelton {
             driver = null;
         }
     }
-
 }
