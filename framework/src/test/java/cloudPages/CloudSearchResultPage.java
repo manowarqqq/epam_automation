@@ -24,6 +24,7 @@ public class CloudSearchResultPage extends AbstractPage {
     public CloudCalculatorPage getCalculatorPage() {
         Waiter.waitVisibility(driver, googleCloudPlatformPricingCalculatorLink);
         googleCloudPlatformPricingCalculatorLink.click();
+        logger.info("CalculatorPage is opened");
         return new CloudCalculatorPage(driver);
     }
 }
