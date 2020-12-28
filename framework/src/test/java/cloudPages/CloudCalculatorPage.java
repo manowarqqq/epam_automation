@@ -53,11 +53,9 @@ public class CloudCalculatorPage extends AbstractPage {
     @FindBy(xpath = "//button[contains(text(),'Add to Estimate')]")
     private WebElement addToEstimateButton;
 
-
     CloudCalculatorPage(WebDriver driver) {
         super(driver);
     }
-
 
     @Override
     protected AbstractPage openPage() {
@@ -89,7 +87,6 @@ public class CloudCalculatorPage extends AbstractPage {
     private WebElement getCommitedUsageInstance() {
         return commitedUsageDropList.findElement(By.xpath("//div[@id='select_container_100']//div[contains(text(),'" + computeEngine.getCommitedUsageInstance() + "')]/ancestor::md-option"));
     }
-
 
     public CloudCalculatorResultPage fillInstanceForm() {
         new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframePath));
